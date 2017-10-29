@@ -2,8 +2,10 @@ group 'com.jianqing'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'scala'
 apply plugin: "idea"
 apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: "com.commercehub.gradle.plugin.avro"
 ext.hadoopVersion = "2.6.0-cdh5.7.1"
 
 sourceCompatibility = 1.7
@@ -14,6 +16,7 @@ buildscript {
 
     dependencies {
         classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+        classpath "com.commercehub.gradle.plugin:gradle-avro-plugin:0.10.0"
     }
 }
 
@@ -29,6 +32,8 @@ dependencies {
 
     //
     compile "org.apache.spark:spark-core_2.11:2.0.2"
+    compile "org.apache.avro:avro:1.8.1"
+
     // Example of adding a specific compile time dependency
     compile "com.google.guava:guava:20.0"
 
