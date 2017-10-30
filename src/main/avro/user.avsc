@@ -16,7 +16,7 @@
       },
       {
          "name": "favorite_color",
-         "type": [
+         "type": [ // this field is either string or null
             "string",
             "null"
          ]

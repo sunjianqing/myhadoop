@@ -1,0 +1,51 @@
+{
+  "namespace": "com.jianqing.netflix",
+  "type": "record",
+  "name": "MovieMetadata",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "time",
+      "type": "string"
+    },
+    {
+      "name": "director",
+      "type": "string"
+    },
+    {
+          "name": "budget",
+          "type": "int"
+        },
+        {
+              "name": "box_office",
+              "type": "int"
+            },
+    {
+      "name": "characters",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Actor",
+          "type": "record",
+          "fields": [
+            {
+              "name": "firstname",
+              "type": "string"
+            },
+            {
+              "name": "lastname",
+              "type": "string"
+            },
+            {
+              "name": "birthday",
+              "type": "long"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
