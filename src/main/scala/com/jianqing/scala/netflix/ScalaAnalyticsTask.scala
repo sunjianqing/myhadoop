@@ -11,7 +11,7 @@ class ScalaAnalyticsTask extends TaskInterface{
   override def init(): Unit = {}
 
   override def run(): Int = {
-
+  0
   }
 
   override def stop(): Int = {
