@@ -7,6 +7,7 @@ package com.jianqing.netflix;
  * Option: Raw HDFS Writer / Sqoop
  */
 public class ExportTask implements TaskInterface {
+
     @Override
     public void init() {
 
