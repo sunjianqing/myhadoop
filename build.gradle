@@ -37,7 +37,7 @@ dependencies {
     compile "com.databricks:spark-avro_2.11:3.2.0"
     compile group: 'org.apache.spark', name: 'spark-sql_2.11', version: '2.0.2'
     compile group: 'org.apache.kafka', name: 'kafka-clients', version: '0.10.2.1'
-    compile group: 'org.apache.parquet', name: 'parquet-avro', version: '1.9.0'
+    compile group: 'com.twitter', name: 'parquet-avro', version: '1.0.0'
 
     // Example of adding a specific compile time dependency
     compile "com.google.guava:guava:20.0"

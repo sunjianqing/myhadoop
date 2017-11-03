@@ -5,24 +5,29 @@
   "fields": [
     {
       "name": "title",
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     {
       "name": "time",
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     {
       "name": "director",
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     {
-          "name": "budget",
-          "type": "int"
-        },
-        {
-              "name": "box_office",
-              "type": "int"
-            },
+      "name": "budget",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "box_office",
+      "type": "int",
+      "default": 0
+    },
     {
       "name": "characters",
       "type": {
@@ -33,15 +38,18 @@
           "fields": [
             {
               "name": "firstname",
-              "type": "string"
+              "type": "string",
+              "default": ""
             },
             {
               "name": "lastname",
-              "type": "string"
+              "type": "string",
+              "default": ""
             },
             {
               "name": "birthday",
-              "type": "long"
+              "type": "string",
+              "default": ""
             }
           ]
         }
