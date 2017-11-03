@@ -30,7 +30,7 @@ repositories {
 dependencies {
     compile "org.apache.hadoop:hadoop-mapreduce-client-core:${hadoopVersion}"
     compile "org.apache.hadoop:hadoop-common:${hadoopVersion}"
-ggg
+
     //
     compile "org.apache.spark:spark-core_2.11:2.0.2"
     compile "org.apache.avro:avro:1.8.1"

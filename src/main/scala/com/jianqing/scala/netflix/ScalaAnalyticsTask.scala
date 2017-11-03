@@ -14,10 +14,10 @@ class ScalaAnalyticsTask extends TaskInterface{
     val sc = new SparkContext(new SparkConf().setAppName("Analytics Task").setMaster("local[*]"))
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
     sqlContext.setConf("spark.sql.parquet.compression.codec", CompressionCodecName.UNCOMPRESSED.name())
-    val df = sqlContext.read.parquet("/tmp/movieexport")
+    val df = sqlContext.read.json("/tmp/moviejson")
     df.registerTempTable("movie")
 
-    sqlContext.sql("select * from movie").collect.foreach(println)
+    sqlContext.sql("select * from movie order by box_office desc limit 2").collect.foreach(println)
 
     0
   }

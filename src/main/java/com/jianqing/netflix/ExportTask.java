@@ -4,13 +4,17 @@ import org.apache.avro.Schema;
 import org.apache.avro.file.DataFileReader;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericDatumReader;
+import org.apache.avro.io.DatumReader;
+import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.hadoop.fs.Path;
+import org.apache.parquet.avro.AvroParquetWriter;
 import org.apache.parquet.hadoop.ParquetWriter;
 import org.apache.parquet.hadoop.metadata.CompressionCodecName;
 import org.apache.parquet.schema.MessageType;
-import parquet.avro.AvroWriteSupport;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -32,16 +36,32 @@ public class ExportTask implements TaskInterface {
 
     @Override
     public int run() {
-        File avroScheme = new File("src/main/avro/netflix/movie.avsc");
         File avroData  = new File("/tmp/movie");
+        String newLine = System.getProperty("line.separator");
+
+        DatumReader<MovieMetadata> movieDatumReader = new SpecificDatumReader<>(MovieMetadata.class);
+        DataFileReader<MovieMetadata> dataFileReader =
+                null;
         try {
+            dataFileReader = new DataFileReader<>(avroData, movieDatumReader);
+            MovieMetadata movie;
+            FileWriter fw = new FileWriter("/tmp/moviejson");
 
-
+            while (dataFileReader.hasNext()) {
+                // Reuse user object by passing it to next(). This saves us from
+                // allocating and garbage collecting many objects for files with
+                // many items.
+                movie = dataFileReader.next();
+                fw.write(movie.toString() + newLine);
+            }
+            fw.close();
+            dataFileReader.close();
 
         } catch (IOException e) {
             e.printStackTrace();
-            return 1;
         }
+
+
 
         return 0;
     }

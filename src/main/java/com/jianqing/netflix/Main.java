@@ -1,5 +1,7 @@
 package com.jianqing.netflix;
 
+import com.jianqing.scala.netflix.ScalaAnalyticsTask;
+
 /**
  * Created by jianqing_sun on 11/2/17.
  */
@@ -9,12 +11,12 @@ public class Main {
         webScrapingTask.init();
         webScrapingTask.run();
 
-        ExportTask exportTask = new ExportTask();
-        exportTask.init();
-        exportTask.run();
-
-        BaseScalaAnalyticsTask scalaAnalyticsTask = new BaseScalaAnalyticsTask();
-        scalaAnalyticsTask.init();
-        scalaAnalyticsTask.run();
+//        ExportTask exportTask = new ExportTask();
+//        exportTask.init();
+//        exportTask.run();
+//
+//        ScalaAnalyticsTask scalaAnalyticsTask = new ScalaAnalyticsTask();
+//        scalaAnalyticsTask.init();
+//        scalaAnalyticsTask.run();
     }
 }
